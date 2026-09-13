@@ -1,4 +1,4 @@
-# Python
+﻿# Python
 __pycache__/
 *.py[cod]
 *.egg-info/
@@ -33,3 +33,7 @@ volumes/
 # OS
 .DS_Store
 Thumbs.db
+
+# Local notes / logs (not to be committed)
+操作日志.txt
+要求记忆.txt
