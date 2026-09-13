@@ -31,7 +31,7 @@ class Settings(BaseSettings):
     
     PROJECT_NAME: str = Field(default="", description="项目名称")
     API_V1_PREFIX: str = Field(default="/api/v1", description="API 路由前缀")
-    DEBUG: bool = Field(default=False, description="调试模式")
+    DEBUG: bool = Field(default=True, description="调试模式")
 
     # ==================== 数据库 / 中间件（非敏感参数可保留本地默认值） ====================
     MYSQL_HOST: str = Field(default="127.0.0.1", description="MySQL 主机")
@@ -100,6 +100,11 @@ class Settings(BaseSettings):
     BACKEND_CORS_ORIGINS: list[str] = Field(
         default=["http://localhost:5173"], description="允许跨域的来源"
     )
+
+    # ==================== 日志配置 ====================
+    LOG_LEVEL: str = Field(default="INFO", description="日志级别: DEBUG/INFO/WARNING/ERROR")
+    LOG_TO_FILE: bool = Field(default=True, description="是否将日志写入文件")
+    LOG_DIR: Path = Field(default=base_url / "logs", description="日志文件存放目录")
 
     # -------------------- 拼接属性 --------------------
     @property
